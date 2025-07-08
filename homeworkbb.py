@@ -12,21 +12,23 @@ Gravity=2000.0
 
 #class for square
 class Bouncysquares ():
-    def __init__(self,startx,starty):
+    def __init__(self,startx,starty,sqsize):
         self.startx=startx
         self.starty=starty
         self.vx=250
+        self.vy=0
+        self.sqsize=sqsize
     def draw(self):
         Red=random.randint(0,255)
         Green=random.randint(0,255)
         Blue=random.randint(0,255)
         Colour=Red,Green,Blue
-        pos=(self.startx,self.starty)
-        screen.draw.filled_rect(rect,(Colour))
+        pos=(self.startx-self.sqsize/2,self.starty-self.sqsize/2)
+        screen.draw.filled_rect(Rect(pos,(self.sqsize,self.sqsize)),Colour)
 #object for class
-square1=Bouncysquares(350,75,37)
-square2=Bouncysquares(450,100,55)
-square3=Bouncysquares(550,125,65)
+square1=Bouncysquares(350,75,56)
+square2=Bouncysquares(450,100,66)
+square3=Bouncysquares(550,125,76)
 bouncies=[square1,square2,square3]
 def draw():
     for square in bouncies:
